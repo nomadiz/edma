@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Week 4: Purson - Akashic records: The Solomon book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Development log</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> October - 2022 </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../devlog/2022/october/w1.html"><strong aria-hidden="true">1.1.</strong> Week 1: Baal</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> November - 2022</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w2.html"><strong aria-hidden="true">2.1.</strong> Week 2: Palmon</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w3.html"><strong aria-hidden="true">2.2.</strong> Week 3: Beleth</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w4.html" class="active"><strong aria-hidden="true">2.3.</strong> Week 4: Purson</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w5.html"><strong aria-hidden="true">2.4.</strong> Week 5: Asmodeus</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../../misc/license.html">License</a></li><li class="chapter-item expanded affix "><a href="../../../misc/code_of_conduct.html">Code of conduct</a></li><li class="chapter-item expanded affix "><a href="../../../misc/contributors.html">Contributors</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Akashic records: The Solomon book</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/nomadiz/solomon-db//tree/master/doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#weekly-update-4-purson" id="weekly-update-4-purson">Weekly Update #4: Purson</a></h1>
+<p>Date: November 2022 (15-23/11/2022)</p>
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Asmodeus.jpg/180px-Asmodeus.jpg" width="40%"/>
+</p>
+<blockquote>
+<p>Purson is a Great King of Hell, being served and obeyed by twenty-two legions of demons. He knows of hidden things, can find treasures, and tells past, present and future. Taking a human or aerial body he answers truly of all secret and divine things of Earth and the creation of the world. He also brings good familiars. Purson is depicted as a man with the face of a lion, carrying a ferocious viper in his hand, and riding a bear. Before him, there can be heard many trumpets sounding. - Wikipedia</p>
+</blockquote>
+<h2><a class="header" href="#commits-on-nov-17-2022" id="commits-on-nov-17-2022">Commits on Nov 17, 2022</a></h2>
+<h3><a class="header" href="#description" id="description">Description</a></h3>
+<ul>
+<li>Refractor from <code>controller</code> to <code>repository</code></li>
+<li>Add <code>suffix_iterate</code> method</li>
+<li>Adding macros for global <code>Transaction</code> to avoid code duplicate</li>
+<li>Add <code>create / delete</code> method for inverted edge</li>
+<li>Add deserialize from pair and iterate vertices</li>
+</ul>
+<h3><a class="header" href="#detail-explanation" id="detail-explanation">Detail explanation</a></h3>
+<h4><a class="header" href="#controller---repository" id="controller---repository">Controller -&gt; Repository</a></h4>
+<p>Calling services for edge, label or vertex as <code>controller</code> bug me sometimes. I feel it is like I am working on a web server instead of a database. So decide to change from <code>controller</code> to <code>repository</code> would be my wisest decision.</p>
+<h4><a class="header" href="#suffix-iterate-method" id="suffix-iterate-method">Suffix iterate method</a></h4>
+<p>Last week CHANGELOG we already mention two methods <code>iterate</code> and <code>prefix iterate</code>. So I add another method called <code>suffix iterate</code> which is a reversed version of <code>prefix iterate</code>.</p>
+<h4><a class="header" href="#macros-for-global-transaction" id="macros-for-global-transaction">Macros for Global Transaction</a></h4>
+<p>One of a key feature in Rust language that hooks me into it is macro. Whenever I write Rust code, I always think about how to do macro. Hence, global <code>Transaction</code> implementation has a duplication in method routing. So I write a macro for it</p>
+<pre><code class="language-diff">pub fn transaction(&amp;self, write: bool) -&gt; Result&lt;Transaction, Error&gt; {
+-match &amp;self.inner {
+-	#[cfg(feature = &quot;kv-rocksdb&quot;)]
+-	Inner::RocksDB(v) =&gt; {
+-		let tx = v.transaction(write)?;
+-		Ok(Transaction {
+-			inner: super::tx::Inner::RocksDB(tx),
+-		})
+-	}
+-	_ =&gt; unimplemented!(),
++macro_rules! impl_transaction_method {
++	($($x: ident feat $f: expr),*) =&gt; {
++		match &amp;self.inner {
++			$(
++				#[cfg(feature = $f)]
++				Inner::$x(v) =&gt; {
++					let tx = v.transaction(write)?;
++					Ok(Transaction {
++						inner: super::tx::Inner::$x(tx),
++					})
++				}
++			)*
++		}
++	};
++}
++impl_transaction_method!(
++	RocksDB feat &quot;kv-rocksdb&quot;,
++	CassandraDB feat &quot;kv-cassandradb&quot;
++)
+}
+</code></pre>
+<h3><a class="header" href="#contributors" id="contributors">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-18-2022" id="commits-on-nov-18-2022">Commits on Nov 18, 2022</a></h2>
+<h3><a class="header" href="#description-1" id="description-1">Description</a></h3>
+<ul>
+<li>Remove unused dependency using <code>cargo udeps</code></li>
+<li>Update <code>test-suite</code> feature tag</li>
+<li>Add <code>gremlin</code> library for graph query language</li>
+<li>Refractor repository to support <code>gremlin</code></li>
+<li>Create LICENSE (<code>MIT License</code>)</li>
+<li>Create CODE_OF_CONDUCT.md</li>
+<li>Update issue templates</li>
+</ul>
+<h3><a class="header" href="#detail-explanation-1" id="detail-explanation-1">Detail explanation</a></h3>
+<h4><a class="header" href="#about-gremlin" id="about-gremlin">About Gremlin</a></h4>
+<p>The breaking changes of this commit is definitely Gremlin. At first, SolomonDB does not have any outstanding feature or highly scalable architecture. Not until I learn about Gremlin TinkerPop.</p>
+<blockquote>
+<p>Gremlin is the graph traversal language of Apache TinkerPop. Gremlin is a functional, data-flow language that enables users to succinctly express complex traversals on (or queries of) their application's property graph.</p>
+</blockquote>
+<pre><code class="language-rs">// What are the names of Gremlin's friends' friends?
+g.V().has(&quot;name&quot;,&quot;gremlin&quot;).
+  out(&quot;knows&quot;).out(&quot;knows&quot;).values(&quot;name&quot;)
+</code></pre>
+<h4><a class="header" href="#solomondb--gremlin" id="solomondb--gremlin">SolomonDB + Gremlin</a></h4>
+<p>There are no distributed graph database written in Rust that supports <strong>GQL (Gremlin Query Language)</strong> at the moment. Then I think it is a good idea for SolomonDB to be compatible with Gremlin.</p>
+<p>To implement Gremlin, I fork code from this repository: <a href="https://github.com/wolf4ood/gremlin-rs">Gremlin-rs: Rust driver and tools for Apache TinkerPop™.</a></p>
+<p>The idea is to turn SolomonDB into &quot;Apache TinkerPop&quot; with its own Gremlin step handler. In that way, I only fork <code>gremlin-rs</code> code to generate Gremlin step bytecode.</p>
+<p>This file below include example to generate Gremlin step bytecode</p>
+<p><a href="https://github.com/wolf4ood/gremlin-rs/blob/master/gremlin-client/src/process/traversal/graph_traversal_source.rs">Gremlin-rs - Graph Traversal Source</a></p>
+<h3><a class="header" href="#contributors-1" id="contributors-1">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<h2><a class="header" href="#commits-on-nov-19-2022" id="commits-on-nov-19-2022">Commits on Nov 19, 2022</a></h2>
+<h3><a class="header" href="#description-2" id="description-2">Description</a></h3>
+<ul>
+<li>Update DEVLOG</li>
+<li>Refractor macro <code>impl_controller</code> to <code>impl_repository</code></li>
+</ul>
+<h3><a class="header" href="#contributors-2" id="contributors-2">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-22-2022" id="commits-on-nov-22-2022">Commits on Nov 22, 2022</a></h2>
+<h3><a class="header" href="#description-3" id="description-3">Description</a></h3>
+<ul>
+<li>
+<p>Add step handler for two basic Gremlin steps:</p>
+<ul>
+<li>
+<p><code>addV</code>: Add a new vertex</p>
+</li>
+<li>
+<p><code>V</code>: Traverse a graph and get vertices</p>
+</li>
+</ul>
+</li>
+<li>
+<p>On the other hand, <code>AccountDiscriminator</code> and <code>Vertex</code>, <code>Edge</code>, and <code>Label</code> models are reason.</p>
+</li>
+<li>
+<p>Implement repository for <code>Property</code> and <code>VertexProperty</code></p>
+</li>
+<li>
+<p>Separate byte builder file and restructure byte layout</p>
+</li>
+</ul>
+<h3><a class="header" href="#detail-explanation-2" id="detail-explanation-2">Detail explanation</a></h3>
+<h4><a class="header" href="#handle-gremlin-steps" id="handle-gremlin-steps">Handle Gremlin steps</a></h4>
+<p>The approach to handle returned bytecode is to loop the byte code step instructions and handle using <code>pattern matching</code> in Rust</p>
+<pre><code class="language-rs">async fn process_source_step(&amp;mut self, step: &amp;Instruction) {
+	let args = step.args();
+	let operator = step.operator().as_str();
+	let mut step_result = match operator {
+		&quot;V&quot; =&gt; self.v(args).await,
+		&quot;addV&quot; =&gt; self.add_v(args).await,
+		&quot;E&quot; =&gt; self.e(args),
+		&quot;addE&quot; =&gt; self.add_e(args),
+		_ =&gt; unimplemented!(),
+	};
+
+ let source = step.operator().to_string();
+	step_result.add_source(source).unwrap();
+
+	self.steps.push_back(step_result);
+}
+</code></pre>
+<h4><a class="header" href="#account-discriminator" id="account-discriminator">Account Discriminator</a></h4>
+<p>Even though the concept of <code>Account Discriminator</code> is quite cool. However, it is redundant in our code when the codebase changed significantly.</p>
+<h4><a class="header" href="#remove-graph-models-vertex-edge-and-label" id="remove-graph-models-vertex-edge-and-label">Remove graph models: Vertex, Edge and Label</a></h4>
+<p>As we integrate with <code>gremlin</code>, those models are deprecated and not clean for new design. We will use structs which has a same name in <code>gremlin-rs</code>.</p>
+<h3><a class="header" href="#contributors-3" id="contributors-3">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<h2><a class="header" href="#commits-on-nov-23-2022" id="commits-on-nov-23-2022">Commits on Nov 23, 2022</a></h2>
+<h3><a class="header" href="#description-4" id="description-4">Description</a></h3>
+<ul>
+<li>Change the design of <code>Vertex</code> properties field: <code>property</code> to <code>vertex property</code></li>
+</ul>
+<pre><code class="language-diff">- pub type VertexPropertyMap = HashMap&lt;String, Property&gt;;
++ pub type VertexPropertyMap = HashMap&lt;String, Vec&lt;VertexProperty&gt;&gt;;
+</code></pre>
+<h3><a class="header" href="#detail-explanation-3" id="detail-explanation-3">Detail explanation</a></h3>
+<p>Gremlin documentation explain the difference between <code>Property</code> and <code>VertexProperty</code> thoroughly.</p>
+<blockquote>
+<p>TinkerPop introduces the concept of a VertexProperty<V>. All the properties of a Vertex are a VertexProperty. A VertexProperty implements Property and as such, it has a key/value pair. However, VertexProperty also implements Element and thus, can have a collection of key/value pairs. Moreover, while an Edge can only have one property of key &quot;name&quot; (for example), a Vertex can have multiple &quot;name&quot; properties. With the inclusion of vertex properties, two features are introduced which ultimately advance the graph modelers toolkit:</p>
+</blockquote>
+<h3><a class="header" href="#contributors-4" id="contributors-4">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../devlog/2022/november/w3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../devlog/2022/november/w5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../devlog/2022/november/w3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../devlog/2022/november/w5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

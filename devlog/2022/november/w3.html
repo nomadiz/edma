@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Week 3: Beleth - Akashic records: The Solomon book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Development log</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> October - 2022 </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../devlog/2022/october/w1.html"><strong aria-hidden="true">1.1.</strong> Week 1: Baal</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> November - 2022</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w2.html"><strong aria-hidden="true">2.1.</strong> Week 2: Palmon</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w3.html" class="active"><strong aria-hidden="true">2.2.</strong> Week 3: Beleth</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w4.html"><strong aria-hidden="true">2.3.</strong> Week 4: Purson</a></li><li class="chapter-item expanded "><a href="../../../devlog/2022/november/w5.html"><strong aria-hidden="true">2.4.</strong> Week 5: Asmodeus</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../../misc/license.html">License</a></li><li class="chapter-item expanded affix "><a href="../../../misc/code_of_conduct.html">Code of conduct</a></li><li class="chapter-item expanded affix "><a href="../../../misc/contributors.html">Contributors</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Akashic records: The Solomon book</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/nomadiz/solomon-db//tree/master/doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#weekly-update-3-beleth" id="weekly-update-3-beleth">Weekly Update #3: Beleth</a></h1>
+<p>Date: November 2022 (8-13/11/2022)</p>
+<p align="center">
+<img src="https://tarot.vn/wp-content/uploads/2015/12/72-demons-evoked-by-king-solomon-part-i13.jpg" width="40%"/>
+</p>
+<blockquote>
+<p>Beleth is a mighty and terrible king of Hell, who has eighty-five legions of demons under his command. He rides a warhorse, and all kind of music is heard before him, according to most authors on demonology and the most known grimoires. According to Pseudomonarchia Daemonum, Ham, son of Noah, was the first in invoking him after the flood, and wrote a book on mathematics with his help. - Wikipedia</p>
+</blockquote>
+<h2><a class="header" href="#commits-on-nov-8-2022" id="commits-on-nov-8-2022">Commits on Nov 8, 2022</a></h2>
+<h3><a class="header" href="#description" id="description">Description</a></h3>
+<ul>
+<li>Adding macro to avoid duplicate of controller implementation</li>
+<li>Update <code>static</code> column family names</li>
+<li>Implement basic methods for <code>LabelController</code> and <code>VertexController</code>. These methods allow us to mutate and query data from <code>vertex</code> database.</li>
+</ul>
+<h3><a class="header" href="#detail-explanation" id="detail-explanation">Detail explanation</a></h3>
+<p>Add more column family name to the global variable</p>
+<pre><code class="language-rs">pub const CF_NAMES: [&amp;str; 4] = [&quot;test_suite:v1&quot;, &quot;vertices:v1&quot;, &quot;labels:v1&quot;, &quot;edges:v1&quot;];
+</code></pre>
+<p>How <code>LabelController</code> and <code>VertexController</code> implemented using the macro</p>
+<pre><code class="language-rs">impl_controller!(get RocksDBAdapter; from rocks_db for LabelController);
+impl_controller!(get RocksDBAdapter; from rocks_db for VertexController);
+</code></pre>
+<h3><a class="header" href="#contributors" id="contributors">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-10-2022" id="commits-on-nov-10-2022">Commits on Nov 10, 2022</a></h2>
+<h3><a class="header" href="#description-1" id="description-1">Description</a></h3>
+<ul>
+<li>Adding more methods to controllers</li>
+<li>Refractor <code>impl_controller</code> macro to make it cleaner and more versatile</li>
+<li>Add a property controller <code>PropertyController</code> to manage properties</li>
+<li>Add feature for <code>CassandraDB</code>: <code>kv-cassandradb</code></li>
+<li>New method <code>multi_get</code> for database transaction</li>
+<li>Implement a <code>GlobalConfig</code></li>
+</ul>
+<h3><a class="header" href="#detail-explanation-1" id="detail-explanation-1">Detail explanation</a></h3>
+<p>A new approach to implement a controller. Now we can identify the controller identifier and its column family.</p>
+<pre><code class="language-rs">impl_controller!(LabelController(&quot;labels:v1&quot;));
+impl_controller!(VertexController(&quot;vertices:v1&quot;));
+impl_controller!(PropertyController(&quot;properties:v1&quot;));
+</code></pre>
+<p>New method added for database transaction to retrieve multiple data at once</p>
+<pre><code class="language-rs">async fn multi_get&lt;K&gt;(&amp;self, cf: CF, keys: Vec&lt;K&gt;) -&gt; Result&lt;Vec&lt;Option&lt;Val&gt;&gt;, Error&gt;
+	where
+		K: Into&lt;Key&gt; + Send + AsRef&lt;[u8]&gt;,
+</code></pre>
+<p>The point of <code>GlobalConfig</code> is that we don't want controller use different databases for each of them. To make it in sync, there will be a struct <code>GlobalConfig</code> storing a datastore where other controllers can reference from.</p>
+<pre><code class="language-rs">macro_rules! impl_global_config {
+	($datastore: ident) =&gt; {
+		pub struct GlobalConfig {
+			pub ds: $datastore,
+		}
+
+		impl GlobalConfig {
+			pub fn new() -&gt; Result&lt;Self, Error&gt; {
+				Ok(GlobalConfig {
+					ds: $datastore::default(),
+				})
+			}
+		}
+	};
+}
+</code></pre>
+<h3><a class="header" href="#contributors-1" id="contributors-1">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-11-2022" id="commits-on-nov-11-2022">Commits on Nov 11, 2022</a></h2>
+<h3><a class="header" href="#description-2" id="description-2">Description</a></h3>
+<p>Apply some techniques to serialize Rust struct data into bytes data. Derived from my experience with Solana development, I learnt the approach Solana codebase uses to for byte serialization and deserialization. This can be briefly described with a work <strong>Discriminator</strong>.</p>
+<h3><a class="header" href="#detail-explanation-2" id="detail-explanation-2">Detail explanation</a></h3>
+<p>The concept of <strong>Account Discriminator</strong> is common in Solana development using Anchor framework (<a href="https://github.com/coral-xyz/anchor/issues/10">Link to reference</a>).</p>
+<p>We will take these lines of code below as an example. This code is to serialize <code>Label</code> struct into <code>Vec&lt;u8&gt;</code> and store it in our data storage.</p>
+<pre><code class="language-rs">// Handle byte concatenate for label components
+let _label_discriminator = serialize_discriminator(AccountDiscriminator::Label).unwrap();
+let _labels = build_bytes(&amp;label_components).unwrap();
+let _label_offset = &amp;build_offset(ll, uuid_len);
+let (l_dis, l_offset, l) =
+(_label_discriminator.as_slice(), _label_offset.as_slice(), _labels.as_slice());
+let labels_concat = [l_dis, l_offset, l].concat();
+</code></pre>
+<p>Understanding the code, there will be three components of the bytes vector <code>Label: (account discriminator / offset / object byte data)</code></p>
+<ul>
+<li><code>Account Discriminator</code>: Identifier of a struct object. Below code indicates the mapped index for each object. In <code>Label</code> case, the mapped index is <code>2</code></li>
+</ul>
+<pre><code class="language-rs">#[derive(PartialEq, Serialize, Deserialize, Eq, Debug, Clone)]
+pub enum AccountDiscriminator {
+	None = 0,
+	Vertex = 1,
+	Label = 2,
+	Property = 3,
+	Relationship = 4,
+}
+</code></pre>
+<ul>
+<li><code>Offset</code>: Or it can be called <code>meta</code>, it describes the number of byte indices <code>object data</code> will occupy. For example, a string <code>hello = [68 65 6c 6c 6f]</code> will have an offset as <code>5</code> as there are 5 byte elements in the vector.</li>
+</ul>
+<blockquote>
+<p>(NOTE: The reason why we must store metadata of the object byte data is because there might be a chance the stored data is a vector of data)</p>
+</blockquote>
+<ul>
+<li><code>Object byte data</code>: This is obvious, the byte data of the object data. Taking the above string example, the byte data for String object <code>hello</code> is <code>hello = [68 65 6c 6c 6f]</code>.</li>
+</ul>
+<p>Combining all the byte component together, we get something like</p>
+<pre><code class="language-rs">/// The return data of this example might not be exact
+/// but it is the idea
+hello = [ 2 5 68 65 6c 6c 6f ]
+</code></pre>
+<h3><a class="header" href="#contributors-2" id="contributors-2">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-12-2022" id="commits-on-nov-12-2022">Commits on Nov 12, 2022</a></h2>
+<h3><a class="header" href="#description-3" id="description-3">Description</a></h3>
+<p>Add a workflow script to automatically build and deploy a doc page to Github Pages.</p>
+<h3><a class="header" href="#detail-explanation-3" id="detail-explanation-3">Detail explanation</a></h3>
+<p>Rust ecosystem has a very interesting crate called <a href="https://rust-lang.github.io/mdBook/">mdbook</a> that helps developer to construct a documentation page in one click. Command to install a cargo crate</p>
+<pre><code>cargo install mdbook
+</code></pre>
+<p>Documentation book of SolomonDB is stored in <code>dpc/src</code>. The page is hosted on <a href="https://nomadiz.github.io/solomon-db/devlog/2022/november-2022.html">SolomonDB Documentation Page</a></p>
+<h3><a class="header" href="#contributors-3" id="contributors-3">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-13-2022" id="commits-on-nov-13-2022">Commits on Nov 13, 2022</a></h2>
+<h3><a class="header" href="#description-4" id="description-4">Description</a></h3>
+<p>Add two badges to markdown. Just a visual stuff.</p>
+<h3><a class="header" href="#detail-explanation-4" id="detail-explanation-4">Detail explanation</a></h3>
+<p>Here is the two badges added to the <code>README.md</code> file</p>
+<p align="center">
+    <a href="https://github.com/nomadiz/solomon-db/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/nomadiz/solomon-db" /></a>
+    <a href="https://github.com/nomadiz/solomon-db/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/nomadiz/solomon-db" /></a>
+</p>
+<h3><a class="header" href="#contributors-4" id="contributors-4">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+<hr />
+<h2><a class="header" href="#commits-on-nov-15-2022" id="commits-on-nov-15-2022">Commits on Nov 15, 2022</a></h2>
+<h3><a class="header" href="#description-5" id="description-5">Description</a></h3>
+<p>There are several keynote changes in today update.</p>
+<ul>
+<li>Remove <code>GlobalConfig</code>. I found a better way to make <code>Datastore</code> be referenced in multiple places. <code>Controllers</code> need <code>Datastore</code> to mutate and retrieve data from a storage.</li>
+<li>Add global <code>Transaction</code> struct. This will point to a right datastore method based on a given entry.</li>
+<li>Add new transaction method to <code>iterate</code> a storage</li>
+</ul>
+<h3><a class="header" href="#detail-explanation-5" id="detail-explanation-5">Detail explanation</a></h3>
+<h4><a class="header" href="#database-reference-dbref" id="database-reference-dbref">Database Reference (DBRef)</a></h4>
+<p>This is derived from <a href="https://github.com/indradb/indradb">IndraDB</a> <code>DBRef</code> struct design</p>
+<pre><code class="language-rs">// Source: ./../managers.rs/*DBRef
+#[derive(Copy, Clone)]
+pub(crate) struct DBRef&lt;'a&gt; {
+    pub db: &amp;'a DB,
+    pub indexed_properties: &amp;'a HashSet&lt;models::Identifier&gt;,
+}
+
+// Referenced by SolomonDB
+#[derive(Copy, Clone)]
+pub struct DBRef&lt;'a&gt; {
+	pub db: &amp;'a Datastore,
+}
+</code></pre>
+<p>The purpose of this new struct is like its name <code>Database Reference (DBRef)</code>. Struct <code>Datastore</code> alone can't be referenced multiple times as it can not implement <code>Copy</code> or <code>Clone</code>. <code>DBRef</code> will take a <code>Datastore</code> and assign it with <code>'a</code> lifetime.</p>
+<p>In that way, this can be referenced in multiple places.</p>
+<pre><code class="language-rs">/// Assigning datastore reference to graph controllers
+let path = generate_path(None);
+let ds = Datastore::new(&amp;path).unwrap();
+let r = DBRef::new(&amp;ds);
+let vc = VertexController::new(r);
+let ec = EdgeController::new(r);
+let lc = LabelController::new(r);
+let epc = EdgePropertyController::new(r);
+</code></pre>
+<h4><a class="header" href="#global-transaction-struct" id="global-transaction-struct">Global Transaction struct</a></h4>
+<p>The idea is to provide a global <code>Transaction</code> struct a field <code>inner</code>. This <code>inner</code> identify a provided <code>Datastore</code>. I utilize the power of Rust enum to do generic datastore.</p>
+<pre><code class="language-rs">#[allow(clippy::large_enum_variant)]
+pub(super) enum Inner {
+	#[cfg(feature = &quot;kv-rocksdb&quot;)]
+	RocksDB(RocksDBTransaction),
+}
+
+pub struct Transaction {
+	pub(super) inner: Inner,
+}
+
+#[async_trait]
+impl SimpleTransaction for Transaction {
+	// Example method
+	fn method_name(&amp;self) -&gt; bool {
+		match self {
+			Transaction {
+				inner: Inner::RocksDB(ds),
+				..
+			} =&gt; ds.method_name(),
+		}
+	}
+}
+</code></pre>
+<h4><a class="header" href="#iterate-and-refix-iterate" id="iterate-and-refix-iterate">Iterate and refix iterate</a></h4>
+<p>RocksDB has a very powerful method called <code>iterate</code>. This let you to iterate each key-value pair in RocksDB filtering with specific condition. On the other hand, it also have <code>prefix_iterate</code> to iterate each pair and only get pair has key contains provided <code>prefix</code>.</p>
+<pre><code class="language-rs">async fn iterate(&amp;self, cf: CF) -&gt; Result&lt;Vec&lt;Result&lt;KeyValuePair, Error&gt;&gt;, Error&gt;;
+
+async fn prefix_iterate&lt;P&gt;(
+		&amp;self,
+		cf: CF,
+		prefix: P,
+	) -&gt; Result&lt;Vec&lt;KeyValuePair, Error&gt;&gt;, Error&gt;;
+</code></pre>
+<h3><a class="header" href="#contributors-5" id="contributors-5">Contributors</a></h3>
+<ul>
+<li>Chung Quan Tin (<a href="https://github.com/chungquantin">@chungquantin</a>)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../devlog/2022/november/w2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../devlog/2022/november/w4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../devlog/2022/november/w2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../devlog/2022/november/w4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
